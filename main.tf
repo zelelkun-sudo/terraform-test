@@ -9,7 +9,11 @@ resource "aws_instance" "test-aws_instance" {
   tags = {
     Name = "test-instance"
   }
-
+  user_data = <<EOF
+  #!/bin/nash
+  amazon-linux-extras install -y nginx1.12
+  sytemctl start nginx
+  EOF
 }
 
 
